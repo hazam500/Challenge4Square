@@ -1,8 +1,8 @@
 package com.example.android.challenge4square;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
-        SitiosAdapter sitiosAdapter = new SitiosAdapter(sitios, new ItemClickListener() {
+        SitiosAdapter sitiosAdapter = new SitiosAdapter(this, sitios, new ItemClickListener() {
             @Override
             public void onItemClick(View v, int position) {
                 goToDetail(sitios.get(position));
@@ -44,7 +44,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void goToDetail(Sitios sitios) {
-
+        Intent intent = new Intent(this, SegundaPaginaActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("sitios", sitios);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 
 

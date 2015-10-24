@@ -1,9 +1,12 @@
 package com.example.android.challenge4square;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,10 +17,11 @@ import java.util.List;
 public class SitiosAdapter extends RecyclerView.Adapter<InformacionViewHolder> {
 
     private final ItemClickListener mItemClickListener;
+    private final Context context;
     private List<Sitios> sitios;
 
-    public SitiosAdapter(List<Sitios> sitios, ItemClickListener itemClickListener) {
-
+    public SitiosAdapter(Context context, List<Sitios> sitios, ItemClickListener itemClickListener) {
+        this.context = context;
         this.sitios = new ArrayList<>();
         this.sitios.addAll(sitios);
         this.mItemClickListener = itemClickListener;
@@ -36,7 +40,7 @@ public class SitiosAdapter extends RecyclerView.Adapter<InformacionViewHolder> {
         Sitios sitios = this.sitios.get(position);
         holder.TextViewNombre.setText(sitios.getSitios());
         holder.TextViewDirecion.setText(sitios.getDireccion());
-
+        Picasso.with(context).load(sitios.getUrl()).into(holder.imageView);
 
     }
 

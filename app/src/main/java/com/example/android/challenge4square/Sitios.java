@@ -1,9 +1,11 @@
 package com.example.android.challenge4square;
 
+import java.io.Serializable;
+
 /**
  * Created by katherine on 23/10/15.
  */
-public class Sitios {
+public class Sitios implements Serializable {
     public String getUrl() {
         return url;
     }
