@@ -8,8 +8,8 @@ public class Sitios {
         return url;
     }
 
-    public String getDirección() {
-        return dirección;
+    public String getDireccion() {
+        return direccion;
     }
 
     public String getSitios() {
@@ -18,12 +18,12 @@ public class Sitios {
 
     private final String sitios;
     private final String url;
-    private final String dirección;
+    private final String direccion;
 
-    public Sitios(String sitios,String url,String dirección){
-        this.dirección=dirección;
-        this.sitios=sitios;
-        this.url=url;
+    public Sitios(String sitios, String direccion, String url) {
+        this.direccion = direccion;
+        this.sitios = sitios;
+        this.url = url;
     }
 
 
